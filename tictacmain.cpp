@@ -6,14 +6,13 @@ using namespace std;
 
 int checkwin();
 void board();
-
+char grid[10] = { 'n', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+double gridval[10] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 int main() { 
 	int i;
 	int choice;
 	int player = 1;
-	char mark;
-	char grid[10] = { 'n', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-	double gridval[10] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+	char mark; 
 	do {
 		board();
 		player = (player % 2) ? 1 : 2;
@@ -55,11 +54,13 @@ int main() {
 			grid[9] = mark;
 		}
 		else {
-			cout << "Invalid move nigga!! ";
-
-			player--;
+			cout << "Invalid move!! ";
+			if (player == 2) {
+				cout << "You selected the wrong spot: " << choice;
+			}
+			/*player--;
 			cin.ignore();
-			cin.get();
+			cin.get();*/
 		}
 		i = checkwin();
 
@@ -115,7 +116,7 @@ int checkwin() {
 
 	void board() {
 		system("cls");
-		cout << "\n\n\tTic Tac Toe Fa Niggas\n\n";
+		cout << "\n\n\tTic Tac Toe\n\n";
 
 		cout << "Player 1 (X) - Player 2 (O)" << endl << endl;
 		cout << endl;
@@ -128,5 +129,5 @@ int checkwin() {
 		cout << "_______|_______|_______" << endl;
 		cout << "       |       |       " << endl;
 		cout << "   " << grid[7] << "   |" << "   " << grid[8] << "   |" << "   " << grid[9] << "   " << endl;
-
+		cout << "       |       |       " << endl;
 }
