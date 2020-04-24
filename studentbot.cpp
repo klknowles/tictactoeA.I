@@ -1,5 +1,5 @@
 #include "communicatortictac.h"
-
+#include <iostream>
 #include <fstream>
 #include <math.h>
 #include <stdio.h>
@@ -16,8 +16,9 @@ double midlayerweight2[25];
 double midlayerweight3[25];
 double midlayerweight4[50];
 double responselayer[10];
+template <typename T>
+size_t find_max_index(const T data[], size_t size);
 int botcalc() {
-	if (player == 2) {
 		for (int i = 1; i <= 9; i++) {
 			if (grid[i] == 'X') {
 				gridval[i] = 0;
@@ -225,6 +226,7 @@ int botcalc() {
 					responselayer[j] = subval;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
+				
 			}
 			else if (j == 2) {
 				int k = 0;
@@ -235,6 +237,7 @@ int botcalc() {
 					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
+				
 			}
 			else if (j == 3) {
 				int k = 0;
@@ -244,6 +247,7 @@ int botcalc() {
 					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
+				
 			}
 			else if (j == 4) {
 				int k = 0;
@@ -300,18 +304,15 @@ int botcalc() {
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 		}
-		double max = 0;
-		for (int i = 1; i <= 9; i++) {
-			if (responselayer[i] > max) {
-				max = responselayer[i];
-			}
-		}
-		for (int i = 1; i <= 9; i++) {
-			if (max == responselayer[i]) {
-				return i;
-			}
-		}
+		return find_max_index(responselayer, 10);
 
-	}
-	return 0;
+	
+}
+template <typename T>
+size_t find_max_index(const T data[], size_t size) {
+	size_t max_index = 0;
+	for (size_t i = 1; i < size; ++i)
+		if (data[i] > data[max_index])
+			max_index = i;
+	return max_index;
 }
