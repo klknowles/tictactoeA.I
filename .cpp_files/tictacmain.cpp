@@ -8,12 +8,20 @@ int checkwin();
 void board();
 char grid[10] = { 'n', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 double gridval[10] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-int main() { 
+int main() {
+	int l = 0;
+	int n = 0;
+	int o = 0;
+	int m = 0;
+	int p = 0;
 	int i;
+	int j = 0;
+	int k = 0;
 	int choice;
 	int player = 1;
 	char mark; 
 	do {
+		bool fail = true;
 		board();
 		player = (player % 2) ? 1 : 2;
 
@@ -23,6 +31,7 @@ int main() {
 		}
 		else if (player == 2) {
 			choice = botcalc();
+			j++;
 		}
 		mark = (player == 1)?'X':'O';
 
@@ -57,7 +66,9 @@ int main() {
 			cout << "Invalid move!! ";
 			if (player == 2) {
 				cout << "You selected the wrong spot: " << choice;
+				boteval(fail);
 			}
+			
 			/*player--;
 			cin.ignore();
 			cin.get();*/
@@ -69,7 +80,48 @@ int main() {
 	board();
 	if (i == 1) {
 
-		cout << "==>\aPlayer "<<--player<<" win ";
+		cout << "==>\aPlayer "<<--player<<" win " << endl;
+		while (k < 10) {
+			cout << gridval[k] << " ";
+			
+			k++;
+
+		}
+		cout << endl;
+		while (m < 5) {
+			cout << midlayer3[m] << " ";
+			m++;
+		}
+		cout << endl;
+		while (n < 5) {
+			cout << midlayer2[n] << " ";
+			n++;
+		}
+		cout << endl;
+		while (o < 5) {
+			cout << midlayer1[o] << " ";
+			o++;
+		}
+		cout << endl;
+		while (p < 25) {
+			cout << midlayerweight1[p] << " ";
+			p++;
+		}
+		cout << endl;
+		while (l < 10) {
+			cout << responselayer[l] << " ";
+			l++;
+		}
+		int R = 0;
+		while (R < 45) {
+			cout << layer1error[R] << " ";
+			R++;
+		}
+		/*cout << endl << "Do you want to play again? (Y) or (N) ";
+		cin >> h;
+		if (h == 'Y') {
+
+		}*/
 	}
 	else {
 		cout << "==>\aGame draw";
