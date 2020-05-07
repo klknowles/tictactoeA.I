@@ -112,11 +112,7 @@ int main() {
 			cout << responselayer[l] << " ";
 			l++;
 		}
-		int R = 0;
-		while (R < 45) {
-			cout << layer1error[R] << " ";
-			R++;
-		}
+		
 		/*cout << endl << "Do you want to play again? (Y) or (N) ";
 		cin >> h;
 		if (h == 'Y') {

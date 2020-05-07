@@ -6,15 +6,30 @@
 
 using namespace std;
 
-
+int a = 0, b = 0, c = 0, d = 0, e = 0;
+int aa = 0, bb = 0, cc = 0, dd = 0, ee = 0, ff = 0, gg = 0, hh = 0, ii = 0;
 int player;
 double midlayer1[5];
 double midlayer2[5];
 double midlayer3[5];
 double midlayerweight1[50];
-double midlayerweight2[25];
+double midlayerweight2[50];
 double midlayerweight3[25];
 double midlayerweight4[50];
+double midlayerweight1a[9];
+double midlayerweight1b[9];
+double midlayerweight1c[9];
+double midlayerweight1d[9];
+double midlayerweight1e[9];
+double midlayerweight2a[5];
+double midlayerweight2b[5];
+double midlayerweight2c[5];
+double midlayerweight2d[5];
+double midlayerweight2e[5];
+double midlayerweight2f[5];
+double midlayerweight2g[5];
+double midlayerweight2h[5];
+double midlayerweight2i[5];
 double responselayer[10];
 template <typename T>
 size_t find_max_index(const T data[], size_t size);
@@ -59,34 +74,96 @@ int botcalc() {
 			}
 		}
 		file4.close();
+		for (int i = 0; i < 45; i++) {
+			if (i < 9) {
+				midlayerweight1a[a] = midlayerweight1[i];
+				a++;
+			}
+			else if (i < 18) {
+				midlayerweight1b[b] = midlayerweight1[i];
+				b++;
+			}
+			else if (i < 27) {
+				midlayerweight1c[c] = midlayerweight1[i];
+				c++;
+			}
+			else if (i < 36) {
+				midlayerweight1d[d] = midlayerweight1[i];
+				d++;
+			}
+			else if (i < 45) {
+				midlayerweight1e[e] = midlayerweight1[i];
+				e++;
+			}
+		}
+		for (int i = 0; i < 45; i++) {
+			if (i < 5 ) {
+				midlayerweight2a[aa] = midlayerweight4[i];
+				aa++;
+			}
+			else if (i < 10) {
+				midlayerweight2b[bb] = midlayerweight4[i];
+				bb++;
+			}
+			else if (i < 15) {
+				midlayerweight2c[cc] = midlayerweight4[i];
+				cc++;
+			}
+			else if (i < 20) {
+				midlayerweight2d[dd] = midlayerweight4[i];
+				dd++;
+			}
+			else if (i < 25) {
+				midlayerweight2e[ee] = midlayerweight4[i];
+				ee++;
+			}
+			else if (i < 30) {
+				midlayerweight2f[ff] = midlayerweight4[i];
+				ff++;
+			}
+			else if (i < 35) {
+				midlayerweight2g[gg] = midlayerweight4[i];
+				gg++;
+			}
+			else if (i < 40) {
+				midlayerweight2h[hh] = midlayerweight4[i];
+				hh++;
+			}
+			else if (i < 45) {
+				midlayerweight2i[ii] = midlayerweight4[i];
+				ii++;
+			}
+		}
 		//hidden layer 1 input calculation and output//
 		for (int j = 0; j < 5; j++) {
 			double subval = 0;
 			if (j == 0) {
-				int k = 0;
-				for (int i = 1; i < 10; i++) {
+				int k = 1;
+				subval = 0;
+				for (int i = 0; i < 9; i++) {
 					
-					subval = (midlayerweight1[i] * gridval[k]) + subval;
+					subval = (midlayerweight1a[i] * gridval[k]) + subval;
 					midlayer1[j]=subval;
 					k++;
 				}
 				midlayer1[j] = 1 / (1 + exp(-midlayer1[j]));
 			}
 			else if (j == 1) {
-				int k = 0;
-				for (int i = 10; i < 19; i++) {
+				int k = 1;
+				subval = 0;
+				for (int i = 0; i < 9; i++) {
 					
-					subval = (midlayerweight1[i] * gridval[k]) + subval;
+					subval = (midlayerweight1b[i] * gridval[k]) + subval;
 					midlayer1[j]=subval;
 					k++;
 				}
 				midlayer1[j] = 1 / (1 + exp(-midlayer1[j]));
 			}
 			else if (j == 2) {
-				int k = 0;
-				for (int i = 19; i < 28; i++) {
-					
-					subval = (midlayerweight1[i] * gridval[k]) + subval;
+				int k = 1;
+				subval = 0;
+				for (int i = 0; i < 9; i++) {
+					subval = (midlayerweight1c[i] * gridval[k]) + subval;
 					midlayer1[j]=subval;
 					k++;
 				}
@@ -94,18 +171,19 @@ int botcalc() {
 				
 			}
 			else if (j == 3) {
-				int k = 0;
-				for (int i = 28; i < 37; i++) {
-					
-					subval = (midlayerweight1[i] * gridval[k]) + subval;
+				int k = 1;
+				subval = 0;
+				for (int i = 0; i < 9; i++) {
+					subval = (midlayerweight1d[i] * gridval[k]) + subval;
 					midlayer1[j]=subval;
 					k++;
 				}
 				midlayer1[j] = 1 / (1 + exp(-midlayer1[j]));
 			}
 			else if (j == 4) {
-				int k = 0;
-				for (int i = 37; i < 46; i++) {
+				int k = 1;
+				subval = 0;
+				for (int i = 0; i < 9; i++) {
 				
 					subval = (midlayerweight1[i] * gridval[k]) + subval;
 					midlayer1[j]=subval;
@@ -217,12 +295,12 @@ int botcalc() {
 			}
 		}*/
 		//final layer input calculation and output//
-		for (int j = 1; j < 10; j++) {
+		for (int j = 1; j < 5; j++) {
 			double subval = 0;
 			if (j == 1) {
 
 				for (int i = 0; i < 5; i++) {
-					subval = (midlayerweight4[i] * midlayer1[i]) + subval;
+					subval = (midlayerweight2a[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
@@ -230,9 +308,9 @@ int botcalc() {
 			}
 			else if (j == 2) {
 				int k = 0;
-				for (int i = 5; i < 10; i++) {
+				for (int i = 0; i < 5; i++) {
 					
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+					subval = (midlayerweight2b[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
 					k++;
 				}
@@ -241,8 +319,8 @@ int botcalc() {
 			}
 			else if (j == 3) {
 				int k = 0;
-				for (int i = 10; i <15; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2c[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
 					k++;
 				}
@@ -250,56 +328,44 @@ int botcalc() {
 				
 			}
 			else if (j == 4) {
-				int k = 0;
-				for (int i = 15; i < 20; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2d[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 			else if (j == 5) {
-				int k = 0;
-				for (int i = 20; i <25; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2e[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 			else if (j == 6) {
-				int k = 0;
-				for (int i = 25; i <30; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2f[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 			else if (j == 7) {
-				int k = 0;
-				for (int i = 30; i <35; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2g[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 			else if (j == 8) {
-				int k = 0;
-				for (int i = 35; i < 40; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2h[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
 			else if (j == 9) {
-				int k = 0;
-				for (int i = 40; i <45; i++) {
-					subval = (midlayerweight4[i] * midlayer1[k]) + subval;
+				for (int i = 0; i < 5; i++) {
+					subval = (midlayerweight2i[i] * midlayer1[i]) + subval;
 					responselayer[j] = subval;
-					k++;
 				}
 				responselayer[j] = 1 / (1 + exp(-responselayer[j]));
 			}
